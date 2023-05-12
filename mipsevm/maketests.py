@@ -11,7 +11,9 @@ def maketest(d, out):
     path = "/Users/kafka/fun/mips/mips-gcc-4.8.1/bin/"
     print("building", d, "->", out)
     # which mips is go
-    ret = os.system("%s/mips-elf-as -defsym big_endian=1 -march=mips32r2 -o %s %s" % (path, nf.name, d))
+    ret = os.system(
+        f"{path}/mips-elf-as -defsym big_endian=1 -march=mips32r2 -o {nf.name} {d}"
+    )
     assert(ret == 0)
     nf.seek(0)
     elffile = ELFFile(nf)
@@ -35,4 +37,4 @@ if __name__ == "__main__":
     for d in os.listdir("test/"):
       if not d.endswith(".asm"):
         continue
-      maketest("test/"+d, "test/bin/"+(d.replace(".asm", ".bin")))
+      maketest(f"test/{d}", "test/bin/"+(d.replace(".asm", ".bin")))

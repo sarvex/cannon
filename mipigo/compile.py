@@ -62,12 +62,9 @@ def load_minigeth(fn="minigeth"):
 
 
 if __name__ == "__main__":
-  fn = "minigeth"
-  if len(sys.argv) > 1:
-    fn = sys.argv[1]
-
+  fn = sys.argv[1] if len(sys.argv) > 1 else "minigeth"
   prog_dat, prog_size, _ = load_minigeth(fn)
   print("compiled %d bytes with md5 %s" % (prog_size, hashlib.md5(prog_dat).hexdigest()))
 
-  with open(fn+".bin", "wb") as f:
+  with open(f"{fn}.bin", "wb") as f:
     f.write(prog_dat)
