@@ -13,7 +13,7 @@ require (
 )
 
 require (
-	github.com/btcsuite/btcd v0.22.0-beta // indirect
+	github.com/btcsuite/btcd/chaincfg/chainhash v1.0.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/holiman/uint256 v1.2.0 // indirect
 	github.com/mattn/go-colorable v0.1.9 // indirect
